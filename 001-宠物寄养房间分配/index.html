@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宠物寄养房间分配</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>宠物寄养房间分配</h1>
+            <button id="addOrderBtn">新增寄养订单</button>
+        </header>
+
+        <main>
+            <section class="room-list-section">
+                <h2>房间列表</h2>
+                <div id="roomList" class="room-list"></div>
+            </section>
+
+            <section id="roomDetailsSection" class="room-details-section hidden">
+                <h2 id="roomDetailsTitle">房间详情</h2>
+                <div class="room-info" id="roomInfo"></div>
+                <h3>当前入住宠物</h3>
+                <div id="petList" class="pet-list"></div>
+                <button id="backToListBtn">返回房间列表</button>
+            </section>
+        </main>
+    </div>
+
+    <!-- 新增订单模态框 -->
+    <div id="orderModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>新增寄养订单</h2>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="petName">宠物名字</label>
+                    <input type="text" id="petName" required>
+                </div>
+                <div class="form-group">
+                    <label for="petType">宠物类型</label>
+                    <select id="petType" required>
+                        <option value="">请选择</option>
+                        <option value="猫">猫</option>
+                        <option value="狗">狗</option>
+                    </select>
+                </div>
+                <div class="form-group" id="petSizeGroup">
+                    <label for="petSize">体型</label>
+                    <select id="petSize" required>
+                        <option value="">请选择</option>
+                        <option value="小型">小型</option>
+                        <option value="大型">大型</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="checkInDate">入住日期</label>
+                    <input type="date" id="checkInDate" required min="">
+                </div>
+                <div class="form-group">
+                    <label for="checkOutDate">离店日期</label>
+                    <input type="date" id="checkOutDate" required min="">
+                </div>
+                <div class="form-group">
+                    <label for="ownerName">主人姓名</label>
+                    <input type="text" id="ownerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="availableRooms">可用房间</label>
+                    <select id="availableRooms" disabled>
+                        <option value="">请先选择宠物类型和体型</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">提交订单</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
